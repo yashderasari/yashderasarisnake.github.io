@@ -25,6 +25,26 @@
     >
       Restart Game
     </button>
+    <div id="arrow-buttons">
+      <div>
+        <button class="arrow-btn" onclick="changeDirectionByButton('up')">
+          ▲
+        </button>
+      </div>
+      <div>
+        <button class="arrow-btn" onclick="changeDirectionByButton('left')">
+          ◀
+        </button>
+        <button class="arrow-btn" onclick="changeDirectionByButton('right')">
+          ▶
+        </button>
+      </div>
+      <div>
+        <button class="arrow-btn" onclick="changeDirectionByButton('down')">
+          ▼
+        </button>
+      </div>
+    </div>
 
     <style>
       button {
@@ -299,5 +319,28 @@
         dy = 10;
       }
     }
+    function changeDirectionByButton(direction) {
+        const goingUp = dy === -10;
+        const goingDown = dy === 10;
+        const goingRight = dx === 10;
+        const goingLeft = dx === -10;
+
+        if (direction === "up" && !goingDown) {
+          dx = 0;
+          dy = -10;
+        }
+        if (direction === "down" && !goingUp) {
+          dx = 0;
+          dy = 10;
+        }
+        if (direction === "left" && !goingRight) {
+          dx = -10;
+          dy = 0;
+        }
+        if (direction === "right" && !goingLeft) {
+          dx = 10;
+          dy = 0;
+        }
+      }
   </script>
 </html>
